@@ -1,0 +1,16 @@
+# The following are executed within MongoDB container
+
+mongosh -u root -p example
+
+show dbs
+
+use the_database
+
+show collections
+
+db.todos.find({})
+
+db.todos.insertOne({
+... text: "Increase the number of tools in my tool belt",
+... done: false
+... })
