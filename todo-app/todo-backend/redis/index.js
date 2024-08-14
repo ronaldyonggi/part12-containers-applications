@@ -17,11 +17,16 @@ if (!REDIS_URL) {
     url: REDIS_URL
   })
     
-  getAsync = promisify(client.get).bind(client)
-  setAsync = promisify(client.set).bind(client)    
+
+const initializeRedisAddedTodos = async () => {
+  let added_todos = await getAsync('added_todos');
+  if (!added_todos) {
+    await setAsync('added_todos', 0);
 }
+};
 
 module.exports = {
   getAsync,
-  setAsync
-}
+  setAsync,
+  initializeRedisAddedTodos,
+};
