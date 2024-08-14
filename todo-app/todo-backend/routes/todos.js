@@ -16,7 +16,11 @@ router.post('/', async (req, res) => {
     done: false,
   });
 
-  const added_todos = await getAsync('added_todos');
+  let added_todos = await getAsync('added_todos');
+  if (!added_todos) {
+    await setAsync('added_todos', 0);
+    added_todos = 0;
+  }
   await setAsync('added_todos', parseInt(added_todos) + 1);
 
   res.send(todo);
