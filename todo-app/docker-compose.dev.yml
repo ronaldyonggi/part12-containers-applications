@@ -1,9 +1,9 @@
 services:
   frontend-dev:
     image: todo-frontend-dev
-    # build:
-    #   context: ./todo-frontend
-    #   dockerfile: dev.Dockerfile
+    build:
+      context: ./todo-frontend
+      dockerfile: dev.Dockerfile
     volumes:
       - ./todo-frontend:/usr/src/app
     environment:
@@ -12,9 +12,9 @@ services:
 
   backend-dev:
     image: todo-backend-dev
-    # build:
-    #   context: ./todo-backend
-    #   dockerfile: dev.Dockerfile
+    build:
+      context: ./todo-backend
+      dockerfile: dev.Dockerfile
     volumes:
       - ./todo-backend:/usr/src/app
     environment:
